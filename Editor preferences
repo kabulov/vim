@@ -15,3 +15,6 @@
 
 #indentation in the beginning of the line
 :set shiftwidth=2
+
+#syntax highlighting off
+:syntax off
