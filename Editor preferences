@@ -1,2 +1,17 @@
 
-TODO
+#/home/kabulov/.vimrc 
+
+#auto indentation
+:set autoindent
+
+#whtespaces amount when tab button pressed
+:set tabstop=2
+
+#use whitespaces instead of tab character
+:set expandtab
+
+#command line history
+:set history=10000
+
+#indentation in the beginning of the line
+:set shiftwidth=2
