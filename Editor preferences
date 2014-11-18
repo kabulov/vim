@@ -1,20 +1,21 @@
 
-#/home/kabulov/.vimrc 
+"/home/kabulov/.vimrc 
+" which will not affect e.g. root
 
-#auto indentation
+"auto indentation
 :set autoindent
 
-#whtespaces amount when tab button pressed
+"whtespaces amount when tab button pressed
 :set tabstop=2
 
-#use whitespaces instead of tab character
+"use whitespaces instead of tab character
 :set expandtab
 
-#command line history
+"command line history
 :set history=10000
 
-#indentation in the beginning of the line
+"indentation in the beginning of the line
 :set shiftwidth=2
 
-#syntax highlighting off
+"syntax highlighting off
 :syntax off
