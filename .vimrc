@@ -204,10 +204,10 @@ set expandtab
 map <F6> :tabp<CR>
 map <F7> :tabn<CR>
 set foldmethod=syntax "indent
-nnoremap <C-Right> zo
-nnoremap <C-Left> zc
-inoremap <C-Right> <C-O>zo
-inoremap <C-Left> <C-O>zc
+nnoremap <C-Right> zO
+nnoremap <C-Left> zC
+inoremap <C-Right> <C-O>zO
+inoremap <C-Left> <C-O>zC
 "set background=dark
 highlight Pmenu ctermbg=blue ctermfg=green
 highlight PmenuSel ctermbg=grey ctermfg=white
