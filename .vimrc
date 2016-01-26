@@ -203,11 +203,15 @@ set tabstop=2
 set expandtab
 map <F6> :tabp<CR>
 map <F7> :tabn<CR>
-set foldmethod=syntax "indent
-nnoremap <C-Right> zO
-nnoremap <C-Left> zC
-inoremap <C-Right> <C-O>zO
-inoremap <C-Left> <C-O>zC
+set foldmethod=syntax "folds code. if doesnt work, use :indent
+nnoremap <C-Right> zO "unfold
+nnoremap <C-Left> zC "fold
+inoremap <C-Right> <C-O>zO "unfold
+inoremap <C-Left> <C-O>zC "fold
+nnoremap <C-Up> zM "fold all
+nnoremap <C-Down> zR "unfold all
+inoremap <C-Up> <C-O>zM "fold all
+inoremap <C-Down> <c-O>zR "unfold all
 "set background=dark
 highlight Pmenu ctermbg=blue ctermfg=green
 highlight PmenuSel ctermbg=grey ctermfg=white
