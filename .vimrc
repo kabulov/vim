@@ -204,6 +204,9 @@ set expandtab
 map <F6> :tabp<CR>
 map <F7> :tabn<CR>
 set foldmethod=syntax "folds code. if doesnt work, use :indent
+"add stty -ixon to .bashrc if bash for <C-S> to work
+nnoremap <C-s> :w<CR>
+inoremap <C-s> <Esc>:w<CR>i
 "below : fold/unfold
 nnoremap <C-Right> zO
 nnoremap <C-Left> zC
