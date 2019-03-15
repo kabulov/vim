@@ -20,6 +20,7 @@ Auto vimrc generator:
 https://vim-bootstrap.com
 
 Vimrc examples:
+
 https://vimconfig.com
 
 https://dougblack.io/words/a-good-vimrc.html
