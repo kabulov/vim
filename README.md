@@ -1,14 +1,12 @@
-VIM
 
 Vim basics tutorial
 ===
 
-Description
-
+Description: 
 This repository contains vim essentials.
 
-===
 URLs
+===
 
 Official Vim site:
 https://www.vim.org
