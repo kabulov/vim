@@ -1,9 +1,8 @@
 
-Vim basics tutorial
+Vim 
 ===
 
-Description: 
-This repository contains vim essentials.
+This repository contains vim info.
 
 URLs
 ===
