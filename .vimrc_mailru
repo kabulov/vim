@@ -1,1 +1,55 @@
-todo
+
+" set fileformat=unix 
+
+" ============================================================================
+" $ git config --global core.autocrlf input
+set nocompatible              " be iMproved, required
+filetype off                  " required
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'   " plugin manager PluginInstall PluginClean
+Plugin 'szw/vim-tags'           " tags TagsGenerate 
+" Plugin 'https://github.com/Valloric/YouCompleteMe'  " autocomplete
+" Plugin 'http://github.com/octol/vim-cpp-enhanced-highlight'
+" Plugin 'sheerun/vim-polyglot'
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+" ============================================================================
+
+set tags+=~/tags
+set enc=utf-8
+set fenc=utf-8
+set termencoding=utf-8
+
+set number              " Show line numbers                                                                                                                                                                                                                            
+set linebreak           " Break lines at word (requires Wrap lines)
+set showbreak=+++       " Wrap-broken line prefix
+set textwidth=100       " Line wrap (number of cols)
+set showmatch           " Highlight matching brace
+set incsearch           " Searches for strings incrementally
+set hlsearch            " Highlight all search results
+set smartcase           " Enable smart-case search
+set ignorecase          " Always case-insensitive
+set autoindent          " Auto-indent new lines
+set cindent
+set expandtab           " Use spaces instead of tabs
+set shiftwidth=4        " Number of auto-indent spaces
+set smartindent         " Enable smart-indent
+set smarttab            " Enable smart-tabs
+set softtabstop=4       " Number of spaces per Tab
+set ruler               " Show row and column ruler information
+set undolevels=1000     " Number of undo levels
+set backspace=indent,eol,start  " Backspace behaviour
+set showcmd             " show command in bottom bar
+set cursorline          " highlight current line
+set wildmenu            " visual autocomplete for command menu
+set lazyredraw          " redraw only when we need to.
+
+nnoremap <C-L> :nohlsearch<CR>
+map <F6> :tabp<CR>
+map <F7> :tabn<CR>
+set pastetoggle=<F2>
+
+
+" TODO: https://gist.github.com/rocarvaj/2513367
