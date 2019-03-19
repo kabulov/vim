@@ -24,7 +24,7 @@ set enc=utf-8
 set fenc=utf-8
 set termencoding=utf-8
 
-" set number              " Show line numbers
+" set number            " Show line numbers
 set linebreak           " Break lines at word (requires Wrap lines)
 set showbreak=+++       " Wrap-broken line prefix
 set textwidth=100       " Line wrap (number of cols)
@@ -66,4 +66,34 @@ inoremap <S-Left> <C-O>zC
 " inoremap <C-S-Down> <c-O>zR
 
 colorscheme molokai
-
+" colorscheme molokai_dark
+" colorscheme mopkai
+" colorscheme grishin
+" colorscheme leo
+" colorscheme miko
+" colorscheme monochrome
+" colorscheme adventurous
+" colorscheme spurs_away
+" colorscheme warriors-away
+" colorscheme sky
+" colorscheme mojave
+" elrond
+" holokai
+" duna
+" valloric
+" meta5
+" sunburst
+" blackboard
+" detailed
+" harlequin
+" sunburst
+" argonaut
+" neonwave
+" lumberjack
+" gotham
+" less
+" ingretu
+" colorscheme clearance
+" colorscheme synic
+" colorscheme ubloh
+"
