@@ -1,0 +1,35 @@
+map <F4> :e %:p:s,.hpp$,.X123X,:s,.cpp$,.hpp,:s,.X123X$,.cpp,<CR>
+map <F3> :e %:p:s,.hpp$,.X123X,:s,.tpp$,.hpp,:s,.X123X$,.tpp,<CR>
+
+map <F6> :tabp<CR>
+map <F7> :tabn<CR>
+
+nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
+
+set tags+=~/tags
+autocmd BufEnter *.tpp :setlocal filetype=cpp
+
+set enc=utf-8
+set fenc=utf-8
+set termencoding=utf-8
+
+set shiftwidth=4
+
+set softtabstop=4
+set expandtab
+set smarttab
+
+set smartindent
+set autoindent
+set cindent
+
+set hlsearch
+nnoremap <C-L> :nohlsearch<CR>
+
+set number
+set showmatch
+set backspace=indent,eol,start
+set undolevels=1000
+
+syntax on
+colorscheme elflord
