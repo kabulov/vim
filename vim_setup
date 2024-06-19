@@ -1,0 +1,24 @@
+
+vim treat .tpp as .cpp
+https://vi.stackexchange.com/questions/5201/how-do-i-tell-vim-that-some-file-extensions-are-synonymous
+
+vim colorscheme
+https://phoenixnap.com/kb/vim-color-schemes
+https://vimawesome.com/plugin/vim-colorschemes-sweeter-than-fiction
+https://github.com/flazz/vim-colorschemes
+https://www.reddit.com/r/vim/comments/ivprz6/best_vim_themes/
+https://github.com/morhetz/gruvbox?tab=readme-ov-file
+https://github.com/NLKNguyen/papercolor-theme
+https://github.com/lunacookies/vim-colors-xcode
+https://github.com/embark-theme/vim
+embark + molokai
+
+vim package manager (vundle)
+https://github.com/VundleVim/Vundle.vim
+
+vim nerdtree plugin
+https://github.com/preservim/nerdtree?tab=readme-ov-file
+
+vim tags
+https://stackoverflow.com/questions/17783539/tag-navigation-in-vim
+https://dev.to/iggredible/how-to-use-tags-in-vim-to-jump-to-definitions-quickly-2g28
