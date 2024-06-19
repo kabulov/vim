@@ -1,3 +1,28 @@
+" Plugin Manager - https://github.com/VundleVim/Vundle.vim
+
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+"Keep Plugin commands between vundle#begin/end.
+Plugin 'xolox/vim-misc' "colorscheme-switcher helper
+Plugin 'xolox/vim-colorscheme-switcher' "colorscheme switcher
+Plugin 'flazz/vim-colorschemes' " better colorschemes
+Plugin 'embark-theme/vim'
+Plugin 'preservim/nerdtree'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+" PLUGINS END
+
 " switch between hpp, cpp, tpp
 map <F4> :e %:p:s,.hpp$,.X123X,:s,.cpp$,.hpp,:s,.X123X$,.cpp,<CR>
 map <F3> :e %:p:s,.hpp$,.X123X,:s,.tpp$,.hpp,:s,.X123X$,.tpp,<CR>
@@ -43,4 +68,12 @@ set undolevels=1000 " undo amount
 
 " misc misc
 syntax on
-colorscheme elflord
+
+" colorscheme elflord
+colorscheme molokai
+" colorscheme embark 
+
+" nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <C-n> :NERDTree<CR>
+" nnoremap <C-t> :NERDTreeToggle<CR> " do not use this, screws up ctags navigation
+" nnoremap <C-f> :NERDTreeFind<CR> " no need now
