@@ -70,7 +70,8 @@ set undolevels=1000 " undo amount
 syntax on
 
 " colorscheme elflord
-colorscheme molokai
+" colorscheme molokai
+colorscheme monokai-phoenix
 " colorscheme embark 
 
 " nnoremap <leader>n :NERDTreeFocus<CR>
