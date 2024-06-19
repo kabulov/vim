@@ -1,0 +1,10 @@
+ctrl + [ - jump forward
+ctrl + t - jump back
+ctrl + n - nerdtree
+ctrl + l - remove search highlight
+ctrl + f3 - hpp, tpp switch
+ctrl + f4 - hpp, cpp switch
+ctrl + f5 - remove trailing spaces
+ctrl + f6 - prev tab
+ctrl + f7 - next tab
+ctrl + f8 - next colorscheme
