@@ -15,10 +15,25 @@ Plugin 'xolox/vim-misc' "colorscheme-switcher helper
 Plugin 'xolox/vim-colorscheme-switcher' "colorscheme switcher
 Plugin 'flazz/vim-colorschemes' " better colorschemes
 Plugin 'embark-theme/vim'
-Plugin 'preservim/nerdtree'
+Plugin 'ycm-core/YouCompleteMe' " C++ autocomplete
+Plugin 'preservim/nerdtree' " Ctrl + n
+" Plugin 'tpope/vim-commentary'
+" Plugin 'jiangmiao/auto-pairs'
+Plugin 'tpope/vim-fugitive' " Git: commands: blame, diff, log, add, ...(https://github.com/tpope/vim-fugitive)
+Plugin 'airblade/vim-gitgutter' " Git changes in code. Parameter below is set to 100
+Plugin 'ctrlpvim/ctrlp.vim' " https://github.com/ctrlpvim/ctrlp.vim "just ctrl + p
+Plugin 'vim-airline/vim-airline' " Cool status line
+" Plugin 'vim-airline/vim-airline-themes'
+" Plugin 'easymotion/vim-easymotion'
+" Plugin 'ilyachur/cmake4vim' "cmake integration : https://github.com/ilyachur/cmake4vim
+Plugin 'terryma/vim-smooth-scroll' " ctrl+u|d|f|b (f|b - page, u|d - smooth)
+Plugin 'preservim/tagbar' " ctrl + F9
+" Plugin https://github.com/ludovicchabant/vim-gutentags
+Plugin 'octol/vim-cpp-enhanced-highlight' " better code highlight. params below
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
+" set runtimepath+=~/.vim/bundle/YouCompleteMe/
 filetype plugin indent on    " required
 
 " PLUGINS END
@@ -46,13 +61,13 @@ set fenc=utf-8
 set termencoding=utf-8
 
 " indent width
-set shiftwidth=4
+set shiftwidth=2
 set smartindent
 set autoindent
 set cindent
 
 " tab width and smarttab
-set softtabstop=4
+set softtabstop=2
 set expandtab
 set smarttab
 
@@ -75,8 +90,44 @@ colorscheme monokai-phoenix
 " colorscheme embark 
 
 " nnoremap <leader>n :NERDTreeFocus<CR>
-nnoremap <C-n> :NERDTree<CR>
-" nnoremap <C-t> :NERDTreeToggle<CR> " do not use this, screws up ctags navigation
-" nnoremap <C-f> :NERDTreeFind<CR> " no need now
+" nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-n> :NERDTreeToggle<CR> " do not use this, screws up ctags navigation
+" nnoremap <C-f> :NERDTreeFind<CR> " doesnt work properly
 
 set belloff=all " disable blink (visual bell)
+
+" comment
+vnoremap <C-m> :norm i//<CR>
+" uncomment
+vnoremap <S-m> :norm xx<CR>
+" noremap <leader>/ :Commentary<cr>
+
+" gitgutter update faster
+set updatetime=100
+
+" airline add tab bars
+let g:airline#extensions#tabline#enabled = 1
+
+" autogenerate ctags
+" https://kulkarniamit.github.io/whatwhyhow/howto/use-vim-ctags.html
+" https://stackoverflow.com/questions/155449/vim-auto-generate-ctags
+au BufWritePost *.c,*.cpp,*.h silent! !ctags -R &
+
+" vim-smooth-scroll
+noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 2)<CR>
+noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
+noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
+noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
+
+" TagBar
+map <F9> :TagbarToggle<CR>
+
+" Code highlight
+let g:cpp_class_scope_highlight = 1
+let g:cpp_member_variable_highlight = 1
+let g:cpp_class_decl_highlight = 1
+let g:cpp_posix_standard = 1
+let g:cpp_experimental_simple_template_highlight = 1
+let g:cpp_concepts_highlight = 1
+let g:cpp_no_function_highlight = 1
+"let c_no_curly_error=1
