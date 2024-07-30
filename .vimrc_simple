@@ -131,3 +131,9 @@ let g:cpp_experimental_simple_template_highlight = 1
 let g:cpp_concepts_highlight = 1
 let g:cpp_no_function_highlight = 1
 "let c_no_curly_error=1
+
+"for autocomplete:
+"cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON ..
+"cp compile_commands.json to project root
+"for ctags:
+"look at ~/.ctags
