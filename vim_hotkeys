@@ -1,10 +1,24 @@
-ctrl + [ - jump forward
+ctrl + ] - jump forward
 ctrl + t - jump back
+
 ctrl + n - nerdtree
+f9 - tagbar (right panel)
+
 ctrl + l - remove search highlight
+ctrl + f5 - remove trailing spaces
+
 ctrl + f3 - hpp, tpp switch
 ctrl + f4 - hpp, cpp switch
-ctrl + f5 - remove trailing spaces
+
 ctrl + f6 - prev tab
 ctrl + f7 - next tab
 ctrl + f8 - next colorscheme
+
+ctrl + p - file search
+
+LLs, LLf, LLw, LLl - easymotion (fast code navigation) (L == <Leader> == /)
+
+ctrl + f|b - next/prev page
+ctrl + u|d - smooth code move up and down
+
+:Git diff, blame, add, ... - vim-fugitive - git in vim
