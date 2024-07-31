@@ -1,24 +1,38 @@
+assume <L> == <Leader> == \
+
+git related:
+:Git diff, blame, add, ... - vim-fugitive - git in vim
+
+search keyword definition/declaration:
 ctrl + ] - jump forward
 ctrl + t - jump back
 
-ctrl + n - nerdtree
-f9 - tagbar (right panel)
+manage tabs:
+<L>1, <L>2, ..., <L>9 - go to tabN
+<L> [+ shift] + tab - move next or prev tab (also: gt or gT) 
+:tabe - open file in new tab
+f6 - prev tab
+f7 - next tab
 
-ctrl + l - remove search highlight
-f5 - remove trailing spaces
-
+switch related files:
 f3 - hpp, tpp switch
 f4 - hpp, cpp switch
 
-f6 - prev tab
-f7 - next tab
-f8 - next colorscheme
-
-ctrl + p - file search
-
-LLs, LLf, LLw, LLl - easymotion (fast code navigation) (L == <Leader> == /)
-
+move screen up/down:
 ctrl + f|b - next/prev page
 ctrl + u|d - smooth code move up and down
 
-:Git diff, blame, add, ... - vim-fugitive - git in vim
+code search/navigate fast:
+Ls, Lf, Lw, Ll - easymotion (fast code navigation) (L == <Leader> == /)
+
+file search:
+ctrl + p - file search
+
+misc useful:
+ctrl + l - remove search highlight
+f5 - remove trailing spaces
+
+misc useless:
+ctrl + n - nerdtree
+f9 - tagbar (right panel)
+f8 - next colorscheme
