@@ -18,12 +18,16 @@ switch related files:
 f3 - hpp, tpp switch
 f4 - hpp, cpp switch
 
-move screen up/down:
-ctrl + f|b - next/prev page
-ctrl + u|d - smooth code move up and down
+comment/uncomment:
+gc - [un]comment visual block
+gcc - [un]comment line
 
 code search/navigate fast:
 Ls, Lf, Lw, Ll - easymotion (fast code navigation) (L == <Leader> == /)
+
+move screen up/down:
+ctrl + f|b - next/prev page
+ctrl + u|d - smooth code move up and down
 
 file search:
 ctrl + p - file search
