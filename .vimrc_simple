@@ -138,7 +138,8 @@ let g:cpp_no_function_highlight = 1
 "let c_no_curly_error=1
 
 " easymotion
-map <Leader><Leader>l <Plug>(easymotion-bd-jk)
+map <Leader> <Plug>(easymotion-prefix)
+map <Leader>l <Plug>(easymotion-bd-jk)
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
 
