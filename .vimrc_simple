@@ -2,6 +2,7 @@
 
 " NOTE: remember - default <Leader> symbol is either '/' or ','
 " TODO: cmake, debugging, copilot, ycm
+" ycm is for: syntax check, autocomplete, snippets, regex code search
 
 set nocompatible              " be iMproved, required
 filetype off                  " required
