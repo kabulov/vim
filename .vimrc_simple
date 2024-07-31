@@ -1,5 +1,7 @@
 " Plugin Manager - https://github.com/VundleVim/Vundle.vim
 
+" NOTE: remember - default <Leader> symbol is either '/' or ','
+
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -17,19 +19,21 @@ Plugin 'flazz/vim-colorschemes' " better colorschemes
 Plugin 'embark-theme/vim'
 Plugin 'ycm-core/YouCompleteMe' " C++ autocomplete
 Plugin 'preservim/nerdtree' " Ctrl + n
-" Plugin 'tpope/vim-commentary'
 " Plugin 'jiangmiao/auto-pairs'
 Plugin 'tpope/vim-fugitive' " Git: commands: blame, diff, log, add, ...(https://github.com/tpope/vim-fugitive)
 Plugin 'airblade/vim-gitgutter' " Git changes in code. Parameter below is set to 100
 Plugin 'ctrlpvim/ctrlp.vim' " https://github.com/ctrlpvim/ctrlp.vim "just ctrl + p
 Plugin 'vim-airline/vim-airline' " Cool status line
 " Plugin 'vim-airline/vim-airline-themes'
-" Plugin 'easymotion/vim-easymotion'
+Plugin 'easymotion/vim-easymotion' " LLs, LLf, LLw, LLl (L - Leader symbol)
 " Plugin 'ilyachur/cmake4vim' "cmake integration : https://github.com/ilyachur/cmake4vim
 Plugin 'terryma/vim-smooth-scroll' " ctrl+u|d|f|b (f|b - page, u|d - smooth)
 Plugin 'preservim/tagbar' " ctrl + F9
 " Plugin https://github.com/ludovicchabant/vim-gutentags
 Plugin 'octol/vim-cpp-enhanced-highlight' " better code highlight. params below
+" Plugin 'vim-syntastic/syntastic' " maybe conflict with ycm
+" Plugin 'preservim/nerdcommenter' " comment functions
+Plugin 'tpope/vim-commentary' " comment lines. file types support. gc, gcc.
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -96,11 +100,12 @@ nnoremap <C-n> :NERDTreeToggle<CR> " do not use this, screws up ctags navigation
 
 set belloff=all " disable blink (visual bell)
 
-" comment
-vnoremap <C-m> :norm i//<CR>
-" uncomment
-vnoremap <S-m> :norm xx<CR>
-" noremap <leader>/ :Commentary<cr>
+" no need with vim-commentary
+" " comment
+" vnoremap <C-m> :norm i//<CR>
+" " uncomment
+" vnoremap <S-m> :norm xx<CR>
+" " noremap <leader>/ :Commentary<cr>
 
 " gitgutter update faster
 set updatetime=100
@@ -131,6 +136,18 @@ let g:cpp_experimental_simple_template_highlight = 1
 let g:cpp_concepts_highlight = 1
 let g:cpp_no_function_highlight = 1
 "let c_no_curly_error=1
+
+" easymotion
+map <Leader><Leader>l <Plug>(easymotion-bd-jk)
+
+" syntastic
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
 
 "for autocomplete:
 "cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON ..
