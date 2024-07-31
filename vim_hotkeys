@@ -1,3 +1,5 @@
+.vimrc_simple hotkeys:
+
 assume <L> == <Leader> == \
 
 git related:
