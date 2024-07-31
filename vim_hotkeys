@@ -7,12 +7,12 @@ f9 - tagbar (right panel)
 ctrl + l - remove search highlight
 f5 - remove trailing spaces
 
-ctrl + f3 - hpp, tpp switch
-ctrl + f4 - hpp, cpp switch
+f3 - hpp, tpp switch
+f4 - hpp, cpp switch
 
-ctrl + f6 - prev tab
-ctrl + f7 - next tab
-ctrl + f8 - next colorscheme
+f6 - prev tab
+f7 - next tab
+f8 - next colorscheme
 
 ctrl + p - file search
 
