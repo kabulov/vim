@@ -25,7 +25,7 @@ gc - [un]comment visual block
 gcc - [un]comment line
 
 code search/navigate fast:
-Ls, Lf, Lw, Ll - easymotion (fast code navigation) (L == <Leader> == /)
+<L>s, <L>f, <L>w, <L>l - easymotion (fast code navigation)
 
 move screen up/down:
 ctrl + f|b - next/prev page
