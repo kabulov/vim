@@ -1,6 +1,7 @@
 " Plugin Manager - https://github.com/VundleVim/Vundle.vim
 
 " NOTE: remember - default <Leader> symbol is either '/' or ','
+" TODO: cmake, debugging, copilot, ycm
 
 set nocompatible              " be iMproved, required
 filetype off                  " required
