@@ -5,7 +5,7 @@ ctrl + n - nerdtree
 f9 - tagbar (right panel)
 
 ctrl + l - remove search highlight
-ctrl + f5 - remove trailing spaces
+f5 - remove trailing spaces
 
 ctrl + f3 - hpp, tpp switch
 ctrl + f4 - hpp, cpp switch
