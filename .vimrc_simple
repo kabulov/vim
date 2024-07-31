@@ -91,7 +91,7 @@ syntax on
 " colorscheme elflord
 " colorscheme molokai
 colorscheme monokai-phoenix
-" colorscheme embark 
+" colorscheme embark
 
 " nnoremap <leader>n :NERDTreeFocus<CR>
 " nnoremap <C-n> :NERDTree<CR>
@@ -139,6 +139,8 @@ let g:cpp_no_function_highlight = 1
 
 " easymotion
 map <Leader><Leader>l <Plug>(easymotion-bd-jk)
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
 
 " syntastic
 " set statusline+=%#warningmsg#
