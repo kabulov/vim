@@ -16,8 +16,11 @@ embark + molokai
 vim package manager (vundle)
 https://github.com/VundleVim/Vundle.vim
 
-vim nerdtree plugin
+vim nerdtree plugin:
 https://github.com/preservim/nerdtree?tab=readme-ov-file
+nerdtree + tabs:
+https://www.reddit.com/r/vim/comments/nav78k/make_nerdtree_work_with_tabs_and_sessions/
+https://joshldavis.com/2014/04/05/vim-tab-madness-buffers-vs-tabs/
 
 vim tags
 https://stackoverflow.com/questions/17783539/tag-navigation-in-vim
@@ -26,3 +29,4 @@ https://dev.to/iggredible/how-to-use-tags-in-vim-to-jump-to-definitions-quickly-
 vim plugins list:
 https://www.reddit.com/r/vim/comments/ulphgp/what_are_your_musthave_vimnvim_extensions/
 https://github.com/altermo/vim-plugin-list?tab=readme-ov-file
+
