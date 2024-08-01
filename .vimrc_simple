@@ -34,6 +34,7 @@ Plugin 'preservim/tagbar' " ctrl + F9
 Plugin 'octol/vim-cpp-enhanced-highlight' " better code highlight. params below
 Plugin 'preservim/vim-indent-guides' " <L>i
 Plugin 'tpope/vim-commentary' " comment lines. file types support. gc, gcc.
+Plugin 'eugen0329/vim-esearch' " search across files
 " Plugin 'itchyny/vim-cursorword' " highlight words
 " Plugin 'bullets-vim/bullets.vim' " to-do list in txt file
 " Plugin 'jiangmiao/auto-pairs'
@@ -171,6 +172,28 @@ let g:indent_guides_auto_colors = 0
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=darkgray
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=gray
 nmap <silent> <Leader>i <Plug>IndentGuidesToggle
+
+" vim-esearch:
+" Use <c-f><c-f> to start the prompt, use <c-f>iw to pre-fill with the current word
+" or other text-objects. Try <plug>(esearch-exec) to start a search instantly.
+nmap <c-f><c-f> <plug>(esearch)
+map  <c-f>      <plug>(operator-esearch-prefill)
+
+let g:esearch = {}
+" Use regex matching with the smart case mode by default and avoid matching text-objects.
+let g:esearch.regex   = 1
+let g:esearch.textobj = 0
+let g:esearch.case    = 'sensitive'
+" Set the initial pattern content using the highlighted '/' pattern (if
+" v:hlsearch is true), the last searched pattern or the clipboard content.
+let g:esearch.prefill = ['hlsearch', 'last', 'clipboard']
+" Override the default files and directories to determine your project root. Set it
+" to blank to always use the current working directory.
+let g:esearch.root_markers = ['.git', 'Makefile', 'node_modules']
+" Prevent esearch from adding any default keymaps.
+" let g:esearch.default_mappings = 0
+" Start the search only when the enter is hit instead of updating the pattern while you're typing.
+" let g:esearch.live_update = 0
 
 " syntastic:
 " set statusline+=%#warningmsg#
