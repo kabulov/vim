@@ -37,7 +37,12 @@ ctrl + f + iw - search current word
 ctrl + f + f - start search
 [can set several project roots to search]
 { / } -	Jump to the previous/next filename [window]
-p - open preview window
+p - increase preview window
+P - open preview file
+:s/from/to - replace like in sed
+:g/../d - delete like in sed
+:write<cr>
+[add git integration if u need it]
 
 misc useful:
 ctrl + l - remove search highlight
