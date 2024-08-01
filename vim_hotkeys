@@ -29,8 +29,15 @@ comment/uncomment:
 gc - [un]comment visual block
 gcc - [un]comment line
 
-code search/navigate fast:
+code search/navigate fast [in current file]:
 <L>w, <L>l, <L>s, <L>f - easymotion (fast code navigation)
+
+code search [replace] [in multiple files]:
+ctrl + f + iw - search current word
+ctrl + f + f - start search
+[can set several project roots to search]
+{ / } -	Jump to the previous/next filename [window]
+p - open preview window
 
 misc useful:
 ctrl + l - remove search highlight
