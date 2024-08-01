@@ -5,6 +5,11 @@ assume <L> == <Leader> == \
 git related:
 :Git diff, blame, add, ... - vim-fugitive - git in vim
 
+nerdtree:
+<L>n - toggle nerdtree
+<L>f - find current in nerdtree
+[also nerdtree has integration with git]
+
 search keyword definition/declaration:
 ctrl + ] - jump forward
 ctrl + t - jump back
@@ -25,21 +30,23 @@ gc - [un]comment visual block
 gcc - [un]comment line
 
 code search/navigate fast:
-<L>s, <L>f, <L>w, <L>l - easymotion (fast code navigation)
-
-move screen up/down:
-ctrl + f|b - next/prev page
-ctrl + u|d - smooth code move up and down
-
-file search:
-ctrl + p - file search
+<L>w, <L>l, <L>s, <L>f - easymotion (fast code navigation)
 
 misc useful:
 ctrl + l - remove search highlight
 f5 - remove trailing spaces
 
+move screen up/down:
+ctrl + f|b - next/prev page
+ctrl + u|d - smooth code move up and down
+
+code visual indent:
+<L>i - toggle visual indent
+
+file search:
+ctrl + p - file search
+
 misc useless:
-ctrl + n - nerdtree
 f9 - tagbar (right panel)
 f8 - next colorscheme
 
