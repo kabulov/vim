@@ -5,6 +5,28 @@
 " TODO: add cmake, debugging, copilot, ycm 
 " ycm is for: syntax check, autocomplete, snippets, regex code search
 
+" ==========================================================================================
+
+" TODO:
+" add key mappings here
+"
+" INFO: all main vim info here:
+" https://habr.com/ru/companies/ruvds/articles/544160/
+" https://gist.github.com/romainl/6b952db7a6138b48657ba0fbb9d65370
+" https://vim.rtorr.com
+" https://github.com/iggredible/Learn-Vim?tab=readme-ov-file
+"
+" ==========================================================================================
+"
+" ycm autocomplete:
+" cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON ..
+" cp compile_commands.json to project root
+
+" ctags:
+" look at ~/.ctags
+
+" ==========================================================================================
+
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -36,6 +58,7 @@ Plugin 'preservim/vim-indent-guides' " <L>i
 Plugin 'tpope/vim-commentary' " comment lines. file types support. gc, gcc.
 Plugin 'eugen0329/vim-esearch' " search across files
 Plugin 'francoiscabrol/ranger.vim'
+Plugin 'jayli/vim-easycomplete'
 " Plugin 'itchyny/vim-cursorword' " highlight words
 " Plugin 'bullets-vim/bullets.vim' " to-do list in txt file
 " Plugin 'jiangmiao/auto-pairs'
@@ -52,6 +75,8 @@ filetype plugin indent on    " required
 
 " PLUGINS END
 
+" ==========================================================================================
+
 " switch between hpp, cpp, tpp
 map <F4> :e %:p:s,.hpp$,.X123X,:s,.cpp$,.hpp,:s,.X123X$,.cpp,<CR>
 map <F3> :e %:p:s,.hpp$,.X123X,:s,.tpp$,.hpp,:s,.X123X$,.tpp,<CR>
@@ -65,6 +90,11 @@ nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 
 " add tags, navigate with ctrl+] (forward), ctrl+t (back), rerun before usage
 set tags+=~/tags
+
+" autogenerate ctags:
+" https://kulkarniamit.github.io/whatwhyhow/howto/use-vim-ctags.html
+" https://stackoverflow.com/questions/155449/vim-auto-generate-ctags
+au BufWritePost *.c,*.cpp,*.h silent! !ctags -R &
 
 " render tpp as cpp
 autocmd BufEnter *.tpp :setlocal filetype=cpp
@@ -120,11 +150,6 @@ set updatetime=100
 " airline add tab bars:
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t' " filename-modifiers
-
-" autogenerate ctags:
-" https://kulkarniamit.github.io/whatwhyhow/howto/use-vim-ctags.html
-" https://stackoverflow.com/questions/155449/vim-auto-generate-ctags
-au BufWritePost *.c,*.cpp,*.h silent! !ctags -R &
 
 " vim-smooth-scroll:
 noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 2)<CR>
@@ -211,6 +236,10 @@ let g:ranger_command_override = 'python3 /home/kozim_kabulov/ranger/ranger/range
 " ranger faq: https://github.com/ranger/ranger/wiki/FAQ%3A-Frequently-Asked-Questions
 " ranger man: https://github.com/ranger/ranger/wiki/Official-user-guide
 
+"
+" easycomplete
+" let g:easycomplete_tab_trigger="<c-s>"
+
 " syntastic:
 " set statusline+=%#warningmsg#
 " set statusline+=%{SyntasticStatuslineFlag()}
@@ -219,20 +248,3 @@ let g:ranger_command_override = 'python3 /home/kozim_kabulov/ranger/ranger/range
 " let g:syntastic_auto_loc_list = 1
 " let g:syntastic_check_on_open = 1
 " let g:syntastic_check_on_wq = 0
-
-" autocomplete:
-" cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON ..
-" cp compile_commands.json to project root
-
-" ctags:
-" look at ~/.ctags
-
-" TODO:
-" add key mappings here
-
-" INFO: all main vim info here:
-" https://habr.com/ru/companies/ruvds/articles/544160/
-" https://gist.github.com/romainl/6b952db7a6138b48657ba0fbb9d65370
-" https://vim.rtorr.com
-" https://github.com/iggredible/Learn-Vim?tab=readme-ov-file
-
