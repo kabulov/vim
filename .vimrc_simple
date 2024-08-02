@@ -229,3 +229,10 @@ let g:ranger_command_override = 'python3 /home/kozim_kabulov/ranger/ranger/range
 
 " TODO:
 " add key mappings here
+
+" INFO: all main vim info here:
+" https://habr.com/ru/companies/ruvds/articles/544160/
+" https://gist.github.com/romainl/6b952db7a6138b48657ba0fbb9d65370
+" https://vim.rtorr.com
+" https://github.com/iggredible/Learn-Vim?tab=readme-ov-file
+
