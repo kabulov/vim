@@ -58,7 +58,7 @@ Plugin 'preservim/vim-indent-guides' " <L>i
 Plugin 'tpope/vim-commentary' " comment lines. file types support. gc, gcc.
 Plugin 'eugen0329/vim-esearch' " search across files
 Plugin 'francoiscabrol/ranger.vim'
-Plugin 'jayli/vim-easycomplete'
+" Plugin 'jayli/vim-easycomplete' " https://github.com/silkeh/docker-clang/issues/2
 " Plugin 'itchyny/vim-cursorword' " highlight words
 " Plugin 'bullets-vim/bullets.vim' " to-do list in txt file
 " Plugin 'jiangmiao/auto-pairs'
