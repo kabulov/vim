@@ -35,6 +35,7 @@ Plugin 'octol/vim-cpp-enhanced-highlight' " better code highlight. params below
 Plugin 'preservim/vim-indent-guides' " <L>i
 Plugin 'tpope/vim-commentary' " comment lines. file types support. gc, gcc.
 Plugin 'eugen0329/vim-esearch' " search across files
+Plugin 'francoiscabrol/ranger.vim'
 " Plugin 'itchyny/vim-cursorword' " highlight words
 " Plugin 'bullets-vim/bullets.vim' " to-do list in txt file
 " Plugin 'jiangmiao/auto-pairs'
@@ -42,6 +43,7 @@ Plugin 'eugen0329/vim-esearch' " search across files
 " Plugin 'vim-syntastic/syntastic' " maybe conflict with ycm
 " Plugin 'preservim/nerdcommenter' " comment functions
 " Plugin https://github.com/ludovicchabant/vim-gutentags
+" Plugin https://github.com/SirVer/ultisnips
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -164,7 +166,7 @@ nnoremap <leader><tab> gt
 nnoremap <leader><s-tab> gT
 
 " colored indent, use <L>i for toggle
-let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_enable_on_vim_startup = 0
 let g:indent_guides_exclude_buftype = 1
 let g:indent_guides_color_change_percent = 10
 let g:indent_guides_guide_size = 1
@@ -194,6 +196,20 @@ let g:esearch.root_markers = ['.git', 'Makefile', 'node_modules']
 " let g:esearch.default_mappings = 0
 " Start the search only when the enter is hit instead of updating the pattern while you're typing.
 " let g:esearch.live_update = 0
+
+" ranger
+" <L>r - run ranger
+let g:ranger_map_keys = 0
+map <leader>r :Ranger<CR>
+" this path is relative to home dir (maybe because i didnt type make install)
+let g:ranger_choice_file = ".vim/tmp/chosenfile"
+" use range for dirs instead of nedtree
+" let g:NERDTreeHijackNetrw = 0 " add this line if you use NERDTree
+" let g:ranger_replace_netrw = 1 " open ranger when vim open a directory
+" didnt type make install, shows hidden files, just cloned repo into ~/ranger
+let g:ranger_command_override = 'python3 /home/kozim_kabulov/ranger/ranger/ranger.py --cmd "set show_hidden=true"'
+" ranger faq: https://github.com/ranger/ranger/wiki/FAQ%3A-Frequently-Asked-Questions
+" ranger man: https://github.com/ranger/ranger/wiki/Official-user-guide
 
 " syntastic:
 " set statusline+=%#warningmsg#
