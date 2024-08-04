@@ -131,9 +131,17 @@ syntax on
 
 " colorscheme:
 " colorscheme elflord
-" colorscheme molokai
-colorscheme monokai-phoenix
+colorscheme molokai
+" colorscheme monokai-phoenix
 " colorscheme embark
+
+" ctrl keymappings do not work fix: https://codeberg.org/dnkl/foot/issues/849                                                                                                                                     
+let &t_TI = "^[[>4;2m"                                                                                                                                                                                            
+let &t_TE = "^[[>4m"                                                                                                                                                                                              
+
+" colorscheme broke
+highlight Comment ctermfg=gray                                                                                                                                                                                    
+highlight Visual cterm=none ctermbg=darkgrey ctermfg=none      
 
 " NerdTree:
 nnoremap <leader>f :wincmd p \| :NERDTreeFind<CR>
@@ -236,7 +244,6 @@ let g:ranger_command_override = 'python3 /home/kozim_kabulov/ranger/ranger/range
 " ranger faq: https://github.com/ranger/ranger/wiki/FAQ%3A-Frequently-Asked-Questions
 " ranger man: https://github.com/ranger/ranger/wiki/Official-user-guide
 
-"
 " easycomplete
 " let g:easycomplete_tab_trigger="<c-s>"
 
