@@ -1,4 +1,4 @@
-.vimrc_simple hotkeys:
+=== .vimrc_simple hotkeys:
 
 assume <L> == <Leader> == \
 
@@ -63,9 +63,7 @@ f9 - tagbar (right panel)
 f8 - next colorscheme
 <L>r - ranger
 
-===
-
-old stuff:
+=== old stuff:
 
 1.  i – insert mode; 
         Esc – normal mode;
@@ -105,7 +103,7 @@ old stuff:
 18.	u(lower) – undo;
         R – redo;
 
-quit:
+=== quit:
 
 1.  :w – write
 2.  :q – quit
