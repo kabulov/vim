@@ -1,4 +1,4 @@
-=== .vimrc_simple hotkeys:
+=== .vimrc hotkeys:
 
 assume <L> == <Leader> == \
 
