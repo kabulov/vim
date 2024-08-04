@@ -68,3 +68,52 @@ f8 - next colorscheme
 get more at:
 https://vim.rtorr.com
 https://monovm.com/blog/vim-shortcuts/
+
+===
+
+old stuff:
+
+1.  i – insert mode; 
+        Esc – normal mode;
+2.	h - left;  
+        j – down; 
+        k – up; 
+        l – right; 
+3.	w – start of the next word ; 
+        b – beginning of the word; 
+        e – end of the word; (Esc)
+4.	number + navigation command = navigation command applied number times e.g. 3w, 5h; (Esc)
+5.	number + ‘I’ + anystring + Esc = anstring X I times;
+6.	[number+] f + char = finds next[numberth] occurrence of char; 
+7.	% - matching parenthesis or bracket;
+8.	0(zero) – beginning of a line; 
+        $ - end of a line;
+9.	* - find next occurrence of the word under cursor; 
+        # - find prev occurrence of the word under cursor;
+10.	gg – beginning of the file; 
+        G – end of the file; 
+        number + G – numberth line;
+11.	/ + anystring + enter = finds anystring; 
+        n – next occurrence; 
+        N – prev occurrence;
+12.	o(lower) – insert a new line below current; 
+        O(upper) – insert a new line above current; 
+        the editor is set to i mode;
+13.	x(lower) – delete the character under the cursor; 
+        X(upper) – delete the character to the left of the cursor;
+14.	r + new character – replace the character under the cursor to new character;
+15.	d - delete; 
+        d + movement character = e.g. dw – deletes the first word on the right side of the cursor i.e. d2e; 
+        after d being used, character p – pastes deleted to another location;
+16.	. – to repeat the previous command
+17.	v(lower) – visual mode;
+        highlights the text;
+18.	u(lower) – undo;
+        R – redo;
+
+quit:
+
+1.  :w – write
+2.  :q – quit
+3.  :q! – quit without save
+4.  :help
