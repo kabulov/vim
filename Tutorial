@@ -49,5 +49,10 @@ https://joshldavis.com/2014/04/05/vim-tab-madness-buffers-vs-tabs/
         highlights the text;
 18.	u(lower) – undo;
         R – redo;
-19.	
 
+quit:
+
+1.	:w – write
+2.	:q – quit
+3.	:q! – quit without save
+4.  :help
