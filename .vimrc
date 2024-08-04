@@ -1,284 +1,250 @@
+" Plugin Manager - https://github.com/VundleVim/Vundle.vim
 
-"DESCRIPTION:
-" this is .vimrc example 
+" NOTE: remember - default <Leader> symbol is either '/' or ','
 
-"=== shortcuts used in this config:
+" TODO: add cmake, debugging, copilot, ycm 
+" ycm is for: syntax check, autocomplete, snippets, regex code search
 
-"C-n - nerdtree
-"F6 - tabp
-"F7 - tabn
-"F8 - next color 
-"Shift F8 - prev color
-"F9 - code layout tab
-"F2 - smart copypaste to vim
+" ==========================================================================================
 
-"=== YouCompleteMe
+" TODO:
+" add key mappings here
+"
+" INFO: all main vim info here:
+" https://habr.com/ru/companies/ruvds/articles/544160/
+" https://gist.github.com/romainl/6b952db7a6138b48657ba0fbb9d65370
+" https://vim.rtorr.com
+" https://github.com/iggredible/Learn-Vim?tab=readme-ov-file
+"
+" ==========================================================================================
+"
+" ycm autocomplete:
+" cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON ..
+" cp compile_commands.json to project root
 
-"Use ./configure --prefix=$HOME/somepath !!!
-"youcompleteme installation guide
-" http://www.alexeyshmalko.com/2014/youcompleteme-ultimate-autocomplete-plugin-for-vim/
-"ycmd config file
-" https://github.com/rasendubi/dotfiles/blob/master/.vim/.ycm_extra_conf.py -
-"youcompleteme github repo
-" https://github.com/Valloric/YouCompleteMe#fedora-linux-x64-installation
-"original site
-" http://valloric.github.io/YouCompleteMe/
-"vim download site
-" http://www.vim.org/download.php
-"install vim without root permissions
-" http://superuser.com/questions/162560/how-to-install-vim-on-linux-when-i-dont-have-root-permissions
-"install vim with python support
-" http://stackoverflow.com/questions/20160902/how-to-solve-requires-python-2-x-support-in-linux-vim-and-it-have-python-2-6-6
-"get cmake bin or sources  (wget - url to file)
-" https://cmake.org/download/
+" ctags:
+" look at ~/.ctags
 
-"=== MISC
-
-"http://valloric.github.io/YouCompleteMe/
-"https://robertmelton.com/2014/05/27/vim-and-me/
-"https://github.com/scrooloose/nerdtree/issues/521
-
-"=================================================================================================
-
-"begin Vundle
+" ==========================================================================================
 
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-"set the runtime path to include Vundle and initialize
+" set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-"alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
 
-"let Vundle manage Vundle, required
+" let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-"Plugin 'gmarik/Vundle.vim' "authors page
 
-"The following are examples of different formats supported.
 "Keep Plugin commands between vundle#begin/end.
-
-"plugin on GitHub repo
- 
-Plugin 'scrooloose/nerdtree' "explorer
-Plugin 'jistr/vim-nerdtree-tabs' "explorer for all tabs
-Plugin 'majutsushi/tagbar' "explore code layout | hint: goto easytags for more
-Plugin 'ervandew/supertab' "word completion on steroids 
 Plugin 'xolox/vim-misc' "colorscheme-switcher helper
 Plugin 'xolox/vim-colorscheme-switcher' "colorscheme switcher
-Plugin 'jiangmiao/auto-pairs' "autocomplete pairs
-"Plugin 'tpope/vim-fugitive'
-"Plugin 'vim-airline/vim-airline'
-"Plugin 'bronson/vim-trailing-whitespace' "clean trailing whitespaces
-"Plugin 'ntpeters/vim-better-whitespace' "better whitespace 
-"Plugin 'Lokaltog/vim-powerline' "cool statusline
-"Plugin 'altercation/vim-colors-solarized' "solarized colorscheme
-"Plugin 'scrooloose/syntastic'
-"Plugin 'google/styleguide'
-"Plugin 'ctrlpvim/ctrlp.vim'
-"Plugin 'easymotion/vim-easymotion'
-"Plugin 'FunkMonkey/libClang'
-"Plugin 'Valloric/YouCompleteMe'
-
-" plugin from http://vim-scripts.org/vim/scripts.html
-"Plugin 'L9'
-
-" Git plugin not hosted on GitHub
-"Plugin 'git://git.wincent.com/command-t.git'
-
-" git repos on your local machine (i.e. when working on your own plugin)
-"Plugin 'file:///home/gmarik/path/to/plugin'
-
-" The sparkup vim script is in a subdirectory of this repo called vim.
-" Pass the path to set the runtimepath properly.
-
-"Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-" Avoid a name conflict with L9
-
-"Plugin 'user/L9', {'name': 'newL9'}
+Plugin 'flazz/vim-colorschemes' " better colorschemes
+Plugin 'embark-theme/vim'
+Plugin 'ycm-core/YouCompleteMe' " C++ autocomplete
+Plugin 'preservim/nerdtree' " <L>n, <L>f
+Plugin 'Xuyuanp/nerdtree-git-plugin' "NerdTree + Git
+Plugin 'tpope/vim-fugitive' " Git: commands: blame, diff, log, add, ...(https://github.com/tpope/vim-fugitive)
+Plugin 'airblade/vim-gitgutter' " Git changes in code. Parameter below is set to 100
+Plugin 'ctrlpvim/ctrlp.vim' " https://github.com/ctrlpvim/ctrlp.vim "just ctrl + p
+Plugin 'vim-airline/vim-airline' " Cool status line
+" Plugin 'vim-airline/vim-airline-themes'
+Plugin 'easymotion/vim-easymotion' " LLs, LLf, LLw, LLl (L - Leader symbol)
+Plugin 'terryma/vim-smooth-scroll' " ctrl+u|d|f|b (f|b - page, u|d - smooth)
+Plugin 'preservim/tagbar' " ctrl + F9
+Plugin 'octol/vim-cpp-enhanced-highlight' " better code highlight. params below
+Plugin 'preservim/vim-indent-guides' " <L>i
+Plugin 'tpope/vim-commentary' " comment lines. file types support. gc, gcc.
+Plugin 'eugen0329/vim-esearch' " search across files
+Plugin 'francoiscabrol/ranger.vim'
+" Plugin 'jayli/vim-easycomplete' " https://github.com/silkeh/docker-clang/issues/2
+" Plugin 'itchyny/vim-cursorword' " highlight words
+" Plugin 'bullets-vim/bullets.vim' " to-do list in txt file
+" Plugin 'jiangmiao/auto-pairs'
+" Plugin 'ilyachur/cmake4vim' "cmake integration : https://github.com/ilyachur/cmake4vim
+" Plugin 'vim-syntastic/syntastic' " maybe conflict with ycm
+" Plugin 'preservim/nerdcommenter' " comment functions
+" Plugin https://github.com/ludovicchabant/vim-gutentags
+" Plugin https://github.com/SirVer/ultisnips
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
+" set runtimepath+=~/.vim/bundle/YouCompleteMe/
 filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
 
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+" PLUGINS END
 
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
+" ==========================================================================================
 
-"end Vundle
+" switch between hpp, cpp, tpp
+map <F4> :e %:p:s,.hpp$,.X123X,:s,.cpp$,.hpp,:s,.X123X$,.cpp,<CR>
+map <F3> :e %:p:s,.hpp$,.X123X,:s,.tpp$,.hpp,:s,.X123X$,.tpp,<CR>
 
-"=================================================================================================
-
-"begin plugin related configs
-
-"=== ycm 
-"let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
-"let mapleader=","
-
-"=== NERDTree
-"autostart NERDTree on startup
-" autocmd vimenter * NERDTree
-"autostart nerdtree-tabs on startup
-" let g:nerdtree_tabs_open_on_console_startup=1
-"map ctrl-n to open/close nerdtree
-map <C-n> :NERDTreeTabsToggle<CR>
-
-"=== tagbar
-let g:tagbar_ctags_bin = '/path/to/ctags' "usually /usr/local/bin/ctags 
-nmap <F9> :TagbarToggle<CR>
-
-"=== supertab
-let g:SuperTabDefaultCompletionType = "<c-n>" "scroll top->bottom
-
-"=== autopairs 
-let g:AutoPairsFlyMode = 0 "turn to 1 if annoying
-let g:AutoPairsShortcutBackInsert = '<M-b>'
-
-"=== powerline
-" set laststatus=2
-" let g:airline_powerline_fonts = 1
-
-"=== whitespace 
-" highlight ExtraWhitespace ctermbg=white
-" map <C-w> :ToggleWhitespace<CR>
-
-"=== solarized colorscheme - dark
-" requires in .bashrc : export TERM="xterm-256color"
-"set background=dark
-"let g:solarized_termtrans=1
-"let g:solarized_termcolors=256
-"let g:solarized_contrast="high"
-"let g:solarized_visibility="high"
-"colorscheme solarized
-
-"=== syntastic
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
-"let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_auto_loc_list = 1
-"let g:syntastic_check_on_open = 1
-"let g:syntastic_check_on_wq = 0
-"=== cpplint related to syntastic
-"let g:syntastic_cpp_cpplint_thres = 5 
-"let g:syntastic_cpp_cpplint_args = "--verbose=3"
-
-"end plugin related configs
-
-"=================================================================================================
-
-" all other configs
-
-"set mouse=a
-"set virtualedit=all
-set confirm
-set ruler
-set wildmenu
-set showcmd
-set hlsearch
-set laststatus=2
-set lazyredraw
-"set statusline=%<%f\ [%Y%R%W]%1*%{(&modified)?'\ [+]\ ':''}%*%=%c%V,%l\ %P\ [%n] 
-set cmdheight=1
-set incsearch
-nnoremap <C-L> :nohl<CR><C-L>
-set runtimepath+=$HOME/.vim/colors
-set runtimepath+=$HOME/.vim/plugin
-colorscheme torte 
-"colorscheme  murphy
-"colorscheme evening
-"colorscheme morning
-"colorscheme delek
-"colorscheme blue
-set number
-set sw=2
-set tabstop=2
-set expandtab
+" next/prev tab
 map <F6> :tabp<CR>
 map <F7> :tabn<CR>
-set foldmethod=syntax "folds code. if doesnt work, use :indent
-"add stty -ixon to .bashrc if bash for <C-S> to work
-nnoremap <C-s> :w<CR>
-inoremap <C-s> <Esc>:w<CR>i
-"below : fold/unfold
-nnoremap <C-Right> zO
-nnoremap <C-Left> zC
-inoremap <C-Right> <C-O>zO
-inoremap <C-Left> <C-O>zC
-"below: fold/unfold all
-nnoremap <C-Up> zM
-nnoremap <C-Down> zR
-inoremap <C-Up> <C-O>zM
-inoremap <C-Down> <c-O>zR
-"set background=dark
-highlight Pmenu ctermbg=blue ctermfg=green
-highlight PmenuSel ctermbg=grey ctermfg=white
-"filetype plugin indent on
-set omnifunc=syntaxcomplete#Complete
-set tags+=./tags;$HOME
-map <M-Left> <C-T>
-map <M-Right> <C-]>
-map <M-Up> 0u
-set pastetoggle=<F2>
+
+" remove trailing spaces
+nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
+
+" add tags, navigate with ctrl+] (forward), ctrl+t (back), rerun before usage
+set tags+=~/tags
+
+" autogenerate ctags:
+" https://kulkarniamit.github.io/whatwhyhow/howto/use-vim-ctags.html
+" https://stackoverflow.com/questions/155449/vim-auto-generate-ctags
+au BufWritePost *.c,*.cpp,*.h silent! !ctags -R &
+
+" render tpp as cpp
+autocmd BufEnter *.tpp :setlocal filetype=cpp
+
+" encoding
+set enc=utf-8
+set fenc=utf-8
+set termencoding=utf-8
+
+" indent width
+set shiftwidth=2
+set smartindent
 set autoindent
 set cindent
-if match($TERM, "screen")!=-1
-  set term=xterm
-endif
 
-"=================================================================================================
+" tab width and smarttab
+set softtabstop=2
+set expandtab
+set smarttab
 
-" omnicompletion (c++ autocomplete)
+" search highlight all/off
+set hlsearch
+nnoremap <C-L> :nohlsearch<CR>
 
-" omnicppcomplete options
-map <C-X><C-G> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q -f ~/.vim/commontags /usr/include /usr/local/include<CR>
-set tags+=~/.vim/commontags
+" misc
+set number " enumerate lines
+set showmatch " highlight matching parenthesis
+set backspace=indent,eol,start " smart backspace
+set undolevels=1000 " undo amount
+set belloff=all " disable blink (visual bell)
 
-" --- OmniCppComplete ---
-" -- required --
-set nocp " non vi compatible mode
+" misc misc
+syntax on
 
-" -- optional --
-" auto close options when exiting insert mode or moving away
-autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
-autocmd InsertLeave * if pumvisible() == 0|pclose|endif
-set completeopt=menu,menuone
+" colorscheme:
+" colorscheme elflord
+" colorscheme molokai
+colorscheme monokai-phoenix
+" colorscheme embark
 
-" -- configs --
-let OmniCpp_MayCompleteDot = 1 " autocomplete with .
-let OmniCpp_MayCompleteArrow = 1 " autocomplete with ->
-let OmniCpp_MayCompleteScope = 1 " autocomplete with ::
-let OmniCpp_SelectFirstItem = 2 " select first item (but don't insert)
-let OmniCpp_NamespaceSearch = 2 " search namespaces in this and included files
-let OmniCpp_ShowPrototypeInAbbr = 1 " show function prototype (i.e. parameters) in popup window
-let OmniCpp_LocalSearchDecl = 1 " don't require special style of function opening braces
-let g:completekey = "<s-tab>"
+" NerdTree:
+nnoremap <leader>f :wincmd p \| :NERDTreeFind<CR>
+nnoremap <leader>n :NERDTreeToggle<CR>
 
-set completeopt+=longest
-"set complete-=i
+" no need with vim-commentary:
+" vnoremap <C-m> :norm i//<CR> " comment
+" vnoremap <S-m> :norm xx<CR> " uncomment
+" " noremap <leader>/ :Commentary<cr>
 
-" -- ctags --
-" generate
-map <C-X><C-L> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
-" add current directory's generated tags file to available tags
-set tags+=./tags
+" gitgutter update faster:
+set updatetime=100
 
-" Setup the tab key to do autocompletion
-function! CompleteTab()
-  let prec = strpart( getline('.'), 0, col('.')-1 )
-  if prec =~ '^\s*$' || prec =~ '\s$'
-    return "\<tab>"
-  else
-    return "\<C-X>\<C-O>"
-  endif
-endfunction
+" airline add tab bars:
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t' " filename-modifiers
 
-inoremap <tab> <c-r>=CompleteTab()<CR>
+" vim-smooth-scroll:
+noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 2)<CR>
+noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
+noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
+noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
 
+" TagBar:
+map <F9> :TagbarToggle<CR>
+
+" Code highlight (vim-cpp-enhanced-highlight):
+let g:cpp_class_scope_highlight = 1
+let g:cpp_member_variable_highlight = 1
+let g:cpp_class_decl_highlight = 1
+let g:cpp_posix_standard = 1
+let g:cpp_experimental_simple_template_highlight = 1
+let g:cpp_concepts_highlight = 1
+let g:cpp_no_function_highlight = 1
+"let c_no_curly_error=1
+
+" easymotion:
+map <Leader> <Plug>(easymotion-prefix)
+map <Leader>l <Plug>(easymotion-bd-jk)
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
+
+" quick tab navigation
+noremap <leader>1 1gt
+noremap <leader>2 2gt
+noremap <leader>3 3gt
+noremap <leader>4 4gt
+noremap <leader>5 5gt
+noremap <leader>6 6gt
+noremap <leader>7 7gt
+noremap <leader>8 8gt
+noremap <leader>9 9gt
+noremap <leader>0 :tablast<cr>
+nnoremap <leader><tab> gt
+nnoremap <leader><s-tab> gT
+
+" colored indent, use <L>i for toggle
+let g:indent_guides_enable_on_vim_startup = 0
+let g:indent_guides_exclude_buftype = 1
+let g:indent_guides_color_change_percent = 10
+let g:indent_guides_guide_size = 1
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=darkgray
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=gray
+nmap <silent> <Leader>i <Plug>IndentGuidesToggle
+
+" vim-esearch:
+" Use <c-f><c-f> to start the prompt, use <c-f>iw to pre-fill with the current word
+" or other text-objects. Try <plug>(esearch-exec) to start a search instantly.
+nmap <c-f><c-f> <plug>(esearch)
+map  <c-f>      <plug>(operator-esearch-prefill)
+
+let g:esearch = {}
+" Use regex matching with the smart case mode by default and avoid matching text-objects.
+let g:esearch.regex   = 1
+let g:esearch.textobj = 0
+let g:esearch.case    = 'sensitive'
+" Set the initial pattern content using the highlighted '/' pattern (if
+" v:hlsearch is true), the last searched pattern or the clipboard content.
+let g:esearch.prefill = ['hlsearch', 'last', 'clipboard']
+" Override the default files and directories to determine your project root. Set it
+" to blank to always use the current working directory.
+let g:esearch.root_markers = ['.git', 'Makefile', 'node_modules']
+" Prevent esearch from adding any default keymaps.
+" let g:esearch.default_mappings = 0
+" Start the search only when the enter is hit instead of updating the pattern while you're typing.
+" let g:esearch.live_update = 0
+
+" ranger
+" <L>r - run ranger
+let g:ranger_map_keys = 0
+map <leader>r :Ranger<CR>
+" this path is relative to home dir (maybe because i didnt type make install)
+let g:ranger_choice_file = ".vim/tmp/chosenfile"
+" use range for dirs instead of nedtree
+" let g:NERDTreeHijackNetrw = 0 " add this line if you use NERDTree
+" let g:ranger_replace_netrw = 1 " open ranger when vim open a directory
+" didnt type make install, shows hidden files, just cloned repo into ~/ranger
+let g:ranger_command_override = 'python3 /home/kozim_kabulov/ranger/ranger/ranger.py --cmd "set show_hidden=true"'
+" ranger faq: https://github.com/ranger/ranger/wiki/FAQ%3A-Frequently-Asked-Questions
+" ranger man: https://github.com/ranger/ranger/wiki/Official-user-guide
+
+"
+" easycomplete
+" let g:easycomplete_tab_trigger="<c-s>"
+
+" syntastic:
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
