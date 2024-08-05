@@ -2,7 +2,7 @@
 
 " NOTE: remember - default <Leader> symbol is either '/' or ','
 
-" TODO: add cmake, debugging, copilot, ycm 
+" TODO: add cmake, debugging, copilot, ycm
 " ycm is for: syntax check, autocomplete, snippets, regex code search
 
 " ==========================================================================================
@@ -57,7 +57,7 @@ Plugin 'octol/vim-cpp-enhanced-highlight' " better code highlight. params below
 Plugin 'preservim/vim-indent-guides' " <L>i
 Plugin 'tpope/vim-commentary' " comment lines. file types support. gc, gcc.
 Plugin 'eugen0329/vim-esearch' " search across files
-Plugin 'francoiscabrol/ranger.vim'
+Plugin 'francoiscabrol/ranger.vim' " file-manager
 " Plugin 'jayli/vim-easycomplete' " https://github.com/silkeh/docker-clang/issues/2
 " Plugin 'itchyny/vim-cursorword' " highlight words
 " Plugin 'bullets-vim/bullets.vim' " to-do list in txt file
@@ -88,16 +88,30 @@ map <F7> :tabn<CR>
 " remove trailing spaces
 nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 
-" add tags, navigate with ctrl+] (forward), ctrl+t (back), rerun before usage
-set tags+=~/tags
+" map Ctrl + S to save
+noremap <silent> <C-S> :w<CR>
+inoremap <silent> <C-S> <C-O>:w<CR>
+" vnoremap <silent> <C-S> <C-C>:w<CR>
+
+" map Ctrl + X to exit
+noremap <silent> <C-X> :q<CR>
+inoremap <silent> <C-X> <esc>:q<CR>
 
 " autogenerate ctags:
 " https://kulkarniamit.github.io/whatwhyhow/howto/use-vim-ctags.html
 " https://stackoverflow.com/questions/155449/vim-auto-generate-ctags
-au BufWritePost *.c,*.cpp,*.h silent! !ctags -R &
+" https://unix.stackexchange.com/questions/359534/how-can-i-exclude-javascript-files-so-as-to-ignore-the-warning-ctags-warning
+au BufWritePost *.c,*.cpp,*.h silent! !ctags -R --exclude='*.js' &
 
-" render tpp as cpp
+" add tags, navigate with ctrl+] (forward), ctrl+t (back), rerun before usage
+set tags+=~/tags
+
+" render tpp/ipp as cpp
 autocmd BufEnter *.tpp :setlocal filetype=cpp
+autocmd BufEnter *.ipp :setlocal filetype=cpp
+
+" preserve cursor position when switching between buffers with :bn
+autocmd BufEnter * silent! normal! g`"
 
 " encoding
 set enc=utf-8
@@ -117,7 +131,7 @@ set smarttab
 
 " search highlight all/off
 set hlsearch
-nnoremap <C-L> :nohlsearch<CR>
+nnoremap <C-l> :nohlsearch<CR>
 
 " misc
 set number " enumerate lines
@@ -135,13 +149,13 @@ colorscheme molokai
 " colorscheme monokai-phoenix
 " colorscheme embark
 
-" ctrl keymappings do not work fix: https://codeberg.org/dnkl/foot/issues/849                                                                                                                                     
-let &t_TI = "^[[>4;2m"                                                                                                                                                                                            
-let &t_TE = "^[[>4m"                                                                                                                                                                                              
+" ctrl keymappings do not work fix: https://codeberg.org/dnkl/foot/issues/849
+let &t_TI = "^[[>4;2m"
+let &t_TE = "^[[>4m"
 
 " colorscheme broke
-highlight Comment ctermfg=gray                                                                                                                                                                                    
-highlight Visual cterm=none ctermbg=darkgrey ctermfg=none      
+highlight Comment ctermfg=gray
+highlight Visual cterm=none ctermbg=darkgrey ctermfg=none
 
 " NerdTree:
 nnoremap <leader>f :wincmd p \| :NERDTreeFind<CR>
@@ -162,8 +176,9 @@ let g:airline#extensions#tabline#fnamemod = ':t' " filename-modifiers
 " vim-smooth-scroll:
 noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 2)<CR>
 noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
-noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
-noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
+" noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
+" c-f is used here for regex search in multiple files
+" noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
 
 " TagBar:
 map <F9> :TagbarToggle<CR>
