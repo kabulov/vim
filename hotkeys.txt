@@ -5,6 +5,10 @@ assume <L> == <Leader> == \
 git related:
 :Git diff, blame, add, ... - vim-fugitive - git in vim
 
+save/exit:
+Ctrl + S - save [modes: normal, insert]
+Ctrl + X - exit [modes: normal, insert] [save changes first then exit]
+
 nerdtree:
 <L>n - toggle nerdtree
 <L>f - find current in nerdtree
