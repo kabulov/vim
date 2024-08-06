@@ -1,31 +1,26 @@
-" Plugin Manager - https://github.com/VundleVim/Vundle.vim
-
-" NOTE: remember - default <Leader> symbol is either '/' or ','
-
-" TODO: add cmake, debugging, copilot, ycm
-" ycm is for: syntax check, autocomplete, snippets, regex code search
-
-" ==========================================================================================
-
-" TODO:
-" add key mappings here
-"
 " INFO: all main vim info here:
-" https://habr.com/ru/companies/ruvds/articles/544160/
-" https://gist.github.com/romainl/6b952db7a6138b48657ba0fbb9d65370
-" https://vim.rtorr.com
-" https://github.com/iggredible/Learn-Vim?tab=readme-ov-file
+" https://github.com/kabulov/vim/blob/master/README.md
+"
+" NOTE: remember - default <Leader> symbol here is '\'
 "
 " ==========================================================================================
 "
-" ycm autocomplete:
+" TODO: add cmake, debugging, copilot, ycm, snippets
+"
+" use ycm for:
+" syntax check, autocomplete, regex code search
+"
+" generate ycm autocomplete config:
 " cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON ..
 " cp compile_commands.json to project root
-
-" ctags:
-" look at ~/.ctags
-
+"
+" generate ctags config:
+" create ~/.ctags
+" run ctags [in code root dir]
+"
 " ==========================================================================================
+"
+" VUNDLE - plugin manager - https://github.com/VundleVim/Vundle.vim
 
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -38,26 +33,26 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 "Keep Plugin commands between vundle#begin/end.
-Plugin 'xolox/vim-misc' "colorscheme-switcher helper
-Plugin 'xolox/vim-colorscheme-switcher' "colorscheme switcher
 Plugin 'flazz/vim-colorschemes' " better colorschemes
-Plugin 'embark-theme/vim'
-Plugin 'ycm-core/YouCompleteMe' " C++ autocomplete
+Plugin 'embark-theme/vim' " colorscheme
+Plugin 'xolox/vim-colorscheme-switcher' "colorscheme switcher
+Plugin 'xolox/vim-misc' "colorscheme-switcher helper
 Plugin 'preservim/nerdtree' " <L>n, <L>f
-Plugin 'Xuyuanp/nerdtree-git-plugin' "NerdTree + Git
-Plugin 'tpope/vim-fugitive' " Git: commands: blame, diff, log, add, ...(https://github.com/tpope/vim-fugitive)
+Plugin 'Xuyuanp/nerdtree-git-plugin' "nerdtree + Git
+Plugin 'tpope/vim-commentary' " comment lines. file types support. gc, gcc.
 Plugin 'airblade/vim-gitgutter' " Git changes in code. Parameter below is set to 100
-Plugin 'ctrlpvim/ctrlp.vim' " https://github.com/ctrlpvim/ctrlp.vim "just ctrl + p
 Plugin 'vim-airline/vim-airline' " Cool status line
 " Plugin 'vim-airline/vim-airline-themes'
-Plugin 'easymotion/vim-easymotion' " LLs, LLf, LLw, LLl (L - Leader symbol)
 Plugin 'terryma/vim-smooth-scroll' " ctrl+u|d|f|b (f|b - page, u|d - smooth)
 Plugin 'preservim/tagbar' " ctrl + F9
 Plugin 'octol/vim-cpp-enhanced-highlight' " better code highlight. params below
+Plugin 'easymotion/vim-easymotion' " LLs, LLf, LLw, LLl (L - Leader symbol)
 Plugin 'preservim/vim-indent-guides' " <L>i
-Plugin 'tpope/vim-commentary' " comment lines. file types support. gc, gcc.
 Plugin 'eugen0329/vim-esearch' " search across files
 Plugin 'francoiscabrol/ranger.vim' " file-manager
+Plugin 'ycm-core/YouCompleteMe' " C++ autocomplete
+Plugin 'tpope/vim-fugitive' " Git: commands: blame, diff, log, add, ...(https://github.com/tpope/vim-fugitive)
+Plugin 'ctrlpvim/ctrlp.vim' " https://github.com/ctrlpvim/ctrlp.vim "just ctrl + p
 " Plugin 'jayli/vim-easycomplete' " https://github.com/silkeh/docker-clang/issues/2
 " Plugin 'itchyny/vim-cursorword' " highlight words
 " Plugin 'bullets-vim/bullets.vim' " to-do list in txt file
@@ -73,9 +68,37 @@ call vundle#end()            " required
 " set runtimepath+=~/.vim/bundle/YouCompleteMe/
 filetype plugin indent on    " required
 
-" PLUGINS END
+" ==========================================================================================
+"
+" FIX IF BROKE
+
+" ctrl keymappings do not work fix: https://codeberg.org/dnkl/foot/issues/849
+let &t_TI = "^[[>4;2m"
+let &t_TE = "^[[>4m"
+
+" colorscheme broke
+highlight Comment ctermfg=gray " fix comments
+highlight Visual cterm=none ctermbg=darkgrey ctermfg=none " fix visual selection
 
 " ==========================================================================================
+"
+" GENERAL PARAMS
+
+" autogenerate ctags:
+" https://kulkarniamit.github.io/whatwhyhow/howto/use-vim-ctags.html
+" https://stackoverflow.com/questions/155449/vim-auto-generate-ctags
+" https://unix.stackexchange.com/questions/359534/how-can-i-exclude-javascript-files-so-as-to-ignore-the-warning-ctags-warning
+au BufWritePost *.c,*.cpp,*.h silent! !ctags -R --exclude='*.js' &
+
+" add tags, navigate with ctrl+] (forward), ctrl+t (back), rerun before usage
+set tags+=~/tags
+
+" preserve cursor position when switching between buffers with :bn
+autocmd BufEnter * silent! normal! g`"
+
+" render tpp/ipp as cpp
+autocmd BufEnter *.tpp :setlocal filetype=cpp
+autocmd BufEnter *.ipp :setlocal filetype=cpp
 
 " switch between hpp, cpp, tpp
 map <F4> :e %:p:s,.hpp$,.X123X,:s,.cpp$,.hpp,:s,.X123X$,.cpp,<CR>
@@ -96,22 +119,6 @@ inoremap <silent> <C-S> <C-O>:w<CR>
 " map Ctrl + X to exit
 noremap <silent> <C-X> :q<CR>
 inoremap <silent> <C-X> <esc>:q<CR>
-
-" autogenerate ctags:
-" https://kulkarniamit.github.io/whatwhyhow/howto/use-vim-ctags.html
-" https://stackoverflow.com/questions/155449/vim-auto-generate-ctags
-" https://unix.stackexchange.com/questions/359534/how-can-i-exclude-javascript-files-so-as-to-ignore-the-warning-ctags-warning
-au BufWritePost *.c,*.cpp,*.h silent! !ctags -R --exclude='*.js' &
-
-" add tags, navigate with ctrl+] (forward), ctrl+t (back), rerun before usage
-set tags+=~/tags
-
-" render tpp/ipp as cpp
-autocmd BufEnter *.tpp :setlocal filetype=cpp
-autocmd BufEnter *.ipp :setlocal filetype=cpp
-
-" preserve cursor position when switching between buffers with :bn
-autocmd BufEnter * silent! normal! g`"
 
 " encoding
 set enc=utf-8
@@ -143,33 +150,32 @@ set belloff=all " disable blink (visual bell)
 " misc misc
 syntax on
 
+" ==========================================================================================
+"
+" PLUGIN PARAMS
+
 " colorscheme:
-" colorscheme elflord
 colorscheme molokai
 " colorscheme monokai-phoenix
 " colorscheme embark
+" colorscheme elflord
 
-" ctrl keymappings do not work fix: https://codeberg.org/dnkl/foot/issues/849
-let &t_TI = "^[[>4;2m"
-let &t_TE = "^[[>4m"
-
-" colorscheme broke
-highlight Comment ctermfg=gray
-highlight Visual cterm=none ctermbg=darkgrey ctermfg=none
-
-" NerdTree:
+" nerdtree:
 nnoremap <leader>f :wincmd p \| :NERDTreeFind<CR>
 nnoremap <leader>n :NERDTreeToggle<CR>
 
-" no need with vim-commentary:
+" vim-commentary:
+" no need for these commands with vim-commentary installed:
 " vnoremap <C-m> :norm i//<CR> " comment
 " vnoremap <S-m> :norm xx<CR> " uncomment
 " " noremap <leader>/ :Commentary<cr>
 
-" gitgutter update faster:
+" gitgutter:
+" update faster:
 set updatetime=100
 
-" airline add tab bars:
+" vim-airline:
+" add tab bars:
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t' " filename-modifiers
 
@@ -180,10 +186,11 @@ noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
 " c-f is used here for regex search in multiple files
 " noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
 
-" TagBar:
+" tagbar:
 map <F9> :TagbarToggle<CR>
 
-" Code highlight (vim-cpp-enhanced-highlight):
+" vim-cpp-enhanced-highlight
+" Code highlight:
 let g:cpp_class_scope_highlight = 1
 let g:cpp_member_variable_highlight = 1
 let g:cpp_class_decl_highlight = 1
@@ -193,12 +200,11 @@ let g:cpp_concepts_highlight = 1
 let g:cpp_no_function_highlight = 1
 "let c_no_curly_error=1
 
-" easymotion:
+" vim-easymotion:
 map <Leader> <Plug>(easymotion-prefix)
 map <Leader>l <Plug>(easymotion-bd-jk)
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
-
 " quick tab navigation
 noremap <leader>1 1gt
 noremap <leader>2 2gt
@@ -213,6 +219,7 @@ noremap <leader>0 :tablast<cr>
 nnoremap <leader><tab> gt
 nnoremap <leader><s-tab> gT
 
+" vim-indent-guides:
 " colored indent, use <L>i for toggle
 let g:indent_guides_enable_on_vim_startup = 0
 let g:indent_guides_exclude_buftype = 1
@@ -228,7 +235,7 @@ nmap <silent> <Leader>i <Plug>IndentGuidesToggle
 " or other text-objects. Try <plug>(esearch-exec) to start a search instantly.
 nmap <c-f><c-f> <plug>(esearch)
 map  <c-f>      <plug>(operator-esearch-prefill)
-
+" initialize params dict
 let g:esearch = {}
 " Use regex matching with the smart case mode by default and avoid matching text-objects.
 let g:esearch.regex   = 1
@@ -258,6 +265,10 @@ let g:ranger_choice_file = ".vim/tmp/chosenfile"
 let g:ranger_command_override = 'python3 /home/kozim_kabulov/ranger/ranger/ranger.py --cmd "set show_hidden=true"'
 " ranger faq: https://github.com/ranger/ranger/wiki/FAQ%3A-Frequently-Asked-Questions
 " ranger man: https://github.com/ranger/ranger/wiki/Official-user-guide
+
+" ==========================================================================================
+"
+" UNUSED PLUGINS PARAMS
 
 " easycomplete
 " let g:easycomplete_tab_trigger="<c-s>"
