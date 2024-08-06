@@ -53,6 +53,8 @@ https://github.com/altermo/vim-plugin-list
 ctags
 ===
 
+https://kulkarniamit.github.io/whatwhyhow/howto/use-vim-ctags.html
+
 https://stackoverflow.com/questions/17783539/tag-navigation-in-vim
 
 https://dev.to/iggredible/how-to-use-tags-in-vim-to-jump-to-definitions-quickly-2g28
