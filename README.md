@@ -16,3 +16,5 @@ Useful files
 hotkeys.txt
 
 urls.md
+
+.ctags
