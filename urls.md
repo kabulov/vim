@@ -59,6 +59,10 @@ https://stackoverflow.com/questions/17783539/tag-navigation-in-vim
 
 https://dev.to/iggredible/how-to-use-tags-in-vim-to-jump-to-definitions-quickly-2g28
 
+https://stackoverflow.com/questions/155449/vim-auto-generate-ctags
+
+https://unix.stackexchange.com/questions/359534/how-can-i-exclude-javascript-files-so-as-to-ignore-the-warning-ctags-warning
+
 nerdtree
 ===
 
@@ -103,3 +107,5 @@ https://stackoverflow.com/questions/3776117/what-is-the-difference-between-the-r
 https://www.reddit.com/r/vim/comments/nav78k/make_nerdtree_work_with_tabs_and_sessions/
 
 https://joshldavis.com/2014/04/05/vim-tab-madness-buffers-vs-tabs/
+
+https://codeberg.org/dnkl/foot/issues/849
