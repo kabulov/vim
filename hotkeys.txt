@@ -53,7 +53,7 @@ ctrl + l - remove search highlight
 f5 - remove trailing spaces
 
 move screen up/down:
-ctrl + f|b - next/prev page
+ctrl + f|b - next/prev page [ctrl + f i used in code search, remap ctrl + f [todo]]
 ctrl + u|d - smooth code move up and down
 
 code visual indent:
