@@ -70,15 +70,11 @@ filetype plugin indent on    " required
 
 " ==========================================================================================
 "
-" FIX IF BROKE
+" FIX CTRL
 
 " ctrl keymappings do not work fix: https://codeberg.org/dnkl/foot/issues/849
 let &t_TI = "^[[>4;2m"
 let &t_TE = "^[[>4m"
-
-" colorscheme broke
-highlight Comment ctermfg=gray " fix comments
-highlight Visual cterm=none ctermbg=darkgrey ctermfg=none " fix visual selection
 
 " ==========================================================================================
 "
@@ -159,6 +155,10 @@ colorscheme molokai
 " colorscheme monokai-phoenix
 " colorscheme embark
 " colorscheme elflord
+"
+" fix colorscheme
+highlight Comment ctermfg=gray " fix comments
+highlight Visual cterm=none ctermbg=darkgrey ctermfg=none " fix visual selection
 
 " nerdtree:
 nnoremap <leader>f :wincmd p \| :NERDTreeFind<CR>
