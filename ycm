@@ -7,10 +7,10 @@ get specific patch of vim (v.9.1 patch 0016+):
 git clone --depth 1 --branch v9.1.0900 https://github.com/vim/vim.git
 
 3.
-compile vim manually (aiming at specific version + python support)
-https://github.com/ycm-core/YouCompleteMe/wiki/Building-Vim-from-source
+compile vim manually (aiming at specific version + python support).
+https://github.com/ycm-core/YouCompleteMe/wiki/Building-Vim-from-source.
+maybe first add necessary packages from this url.
 
-(maybe first add necessary packages)
 cd vim
 ./configure --with-features=huge \
             --enable-multibyte \
