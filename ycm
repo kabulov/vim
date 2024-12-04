@@ -1,3 +1,13 @@
+PREVIEW
+
+ycm (youcompleteme) gives:
+- autocompletion
+- code errors check
+- snippet-like suggestions
+- ...
+
+INSTALLATION
+
 1. 
 maybe add some packages from this url https://askubuntu.com/questions/406111/what-is-the-command-in-the-terminal-to-update-vim-on-ubuntu
 example: ncurses-dev
