@@ -18,3 +18,5 @@ hotkeys.txt
 urls.md
 
 .ctags
+
+ycm
