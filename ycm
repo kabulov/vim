@@ -26,6 +26,8 @@ cd vim
 make VIMRUNTIMEDIR=/usr/local/share/vim/vim91
 sudo make install
 
+check vim version
+
 4.
 install vundle
 install ycm via bundle
