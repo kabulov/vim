@@ -1,0 +1,46 @@
+1. 
+maybe add some packages from this url https://askubuntu.com/questions/406111/what-is-the-command-in-the-terminal-to-update-vim-on-ubuntu
+example: ncurses-dev
+
+2.
+get specific patch of vim (v.9.1 patch 0016+):
+git clone --depth 1 --branch v9.1.0900 https://github.com/vim/vim.git
+
+3.
+compile vim manually (aiming at specific version + python support)
+https://github.com/ycm-core/YouCompleteMe/wiki/Building-Vim-from-source
+
+(maybe first add necessary packages)
+cd vim
+./configure --with-features=huge \
+            --enable-multibyte \
+            --enable-rubyinterp=yes \
+            --enable-python3interp=yes \
+            --with-python3-config-dir=$(python3-config --configdir) \
+            --enable-perlinterp=yes \
+            --enable-luainterp=yes \
+            --enable-gui=gtk2 \
+            --enable-cscope \
+            --prefix=/usr/local
+
+make VIMRUNTIMEDIR=/usr/local/share/vim/vim91
+sudo make install
+
+4.
+install vundle
+install ycm via bundle
+
+5.
+cd ~/.vim/bundle/YouCompleteMe
+python3 install.py --clangd-completer
+
+6.
+notes:
+a)
+there may be several versions of vim on your system: alias vim to specific one in .bash_aliases.
+(after manual compilation it goes to /usr/local/bin/vim, but there may be one in /usr/bin/vim).
+(you can also change PATH so that /usr/local/bin goes before /usr/bin, but i wouldnt do that).
+b)
+you may also want to alias vi to vim in .bash_aliases.
+
+
